@@ -1,7 +1,8 @@
 import sys
 import messages
+from workouts import ctsTest
 
-KNOWN_COMMANDS = ["-h"]
+KNOWN_COMMANDS = ["-h", "-cts"]
 
 def main():
     parseArgs(sys.argv)
@@ -13,6 +14,8 @@ def parseArgs(args):
         match extractCommand(args):
             case "-h":
                 messages.displayHelp()
+            case "-cts":
+                print(ctsTest())
             case "error":
                 messages.displayUnknownCommand()
                 messages.displayHelp()
